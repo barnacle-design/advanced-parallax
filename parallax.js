@@ -1,4 +1,5 @@
 const sections = document.querySelectorAll("section");
+const bodyTag = document.querySelector("body");
 
 const addMovement = function () {
     const topViewport = window.pageYOffset;
@@ -35,6 +36,12 @@ const addMovement = function () {
         image.style.transform = `rotate(${rotation}deg)`;
         contentTag.style.top = `${contentDist}px`;
         contentTag.style.transform = `rotate(${(-1 * rotation)})`
+
+        // check the bg
+        if (distanceToSection > -100) {
+            const dataBackground = section.getAttribute("data-bg");
+            bodyTag.style.backgroundColor = dataBackground;
+        }
     })
 
 
